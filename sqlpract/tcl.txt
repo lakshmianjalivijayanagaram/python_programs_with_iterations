@@ -1,0 +1,144 @@
+SQL>  select * from publisher;
+
+       AID ANAME                       AGE  NOOFBOOKS                           
+---------- -------------------- ---------- ----------                           
+        10 ram                          27          5                           
+        20 B                            25          2                           
+
+SQL> insert into publisher values(30,'C',31,4);
+
+1 row created.
+
+SQL> insert into publisher(aid,age,aname)
+  2  values(40,35,'D');
+
+1 row created.
+
+SQL> savepoint A;
+
+Savepoint created.
+
+SQL> select * from publisher;
+
+       AID ANAME                       AGE  NOOFBOOKS                           
+---------- -------------------- ---------- ----------                           
+        10 ram                          27          5                           
+        20 B                            25          2                           
+        30 C                            31          4                           
+        40 D                            35                                      
+
+SQL> insert into publisher values(50,'E',30);
+insert into publisher values(50,'E',30)
+            *
+ERROR at line 1:
+ORA-00947: not enough values 
+
+
+SQL>  insert into publisher values(50,'E',30,5);
+
+1 row created.
+
+SQL> savepoint B;
+
+Savepoint created.
+
+SQL> insert into publisher values(5,'f',22,1);
+
+1 row created.
+
+SQL> savepoint C;
+
+Savepoint created.
+
+SQL> rollback to b;
+
+Rollback complete.
+
+SQL> select * from publisher;
+
+       AID ANAME                       AGE  NOOFBOOKS                           
+---------- -------------------- ---------- ----------                           
+        10 ram                          27          5                           
+        20 B                            25          2                           
+        30 C                            31          4                           
+        40 D                            35                                      
+        50 E                            30          5                           
+
+SQL> commit;
+
+Commit complete.
+
+SQL> rollback to A;
+rollback to A
+*
+ERROR at line 1:
+ORA-01086: savepoint 'A' never established 
+
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL>  select * from publisher;
+
+       AID ANAME                       AGE  NOOFBOOKS                           
+---------- -------------------- ---------- ----------                           
+        10 ram                          27          5                           
+        20 B                            25          2                           
+        30 C                            31          4                           
+        40 D                            35                                      
+        50 E                            30          5                           
+
+SQL> delete from publisher
+  2  where noofbooks is null;
+
+1 row deleted.
+
+SQL> savepoint A;
+
+Savepoint created.
+
+SQL> update publisher set aname='ppppp'
+  2  where aid=40;
+
+0 rows updated.
+
+SQL>  update publisher set aname='ppppp'
+  2  where aid=30;
+
+1 row updated.
+
+SQL> savepoint to b;
+savepoint to b
+          *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> savepoint B;
+
+Savepoint created.
+
+SQL> commit
+  2  ;
+
+Commit complete.
+
+SQL> insert into publisher values(11,'s',20,11);
+
+1 row created.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from publisher;
+
+       AID ANAME                       AGE  NOOFBOOKS                           
+---------- -------------------- ---------- ----------                           
+        10 ram                          27          5                           
+        20 B                            25          2                           
+        30 ppppp                        31          4                           
+        50 E                            30          5                           
+
+SQL> spool off

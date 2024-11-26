@@ -1,0 +1,813 @@
+SQL> select mod(12,3) from dual;
+
+ MOD(12,3)                                                                      
+----------                                                                      
+         0                                                                      
+
+SQL> select mod(10,3) from dual;
+
+ MOD(10,3)                                                                      
+----------                                                                      
+         1                                                                      
+
+SQL> set lines 200 pages 200;
+SQL> select ename||' is getting salary is "||sal from emp;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> select ename||' is getting salary is '||sal from emp;
+
+ENAME||'ISGETTINGSALARYIS'||SAL                                                                                                                                                                         
+------------------------------------------------------------------------                                                                                                                                
+SMITH is getting salary is 800                                                                                                                                                                          
+ALLEN is getting salary is 1600                                                                                                                                                                         
+WARD is getting salary is 1250                                                                                                                                                                          
+JONES is getting salary is 2975                                                                                                                                                                         
+MARTIN is getting salary is 1250                                                                                                                                                                        
+BLAKE is getting salary is 2850                                                                                                                                                                         
+CLARK is getting salary is 2450                                                                                                                                                                         
+SCOTT is getting salary is 3000                                                                                                                                                                         
+KING is getting salary is 5000                                                                                                                                                                          
+TURNER is getting salary is 1500                                                                                                                                                                        
+ADAMS is getting salary is 1100                                                                                                                                                                         
+JAMES is getting salary is 950                                                                                                                                                                          
+FORD is getting salary is 3000                                                                                                                                                                          
+MILLER is getting salary is 1300                                                                                                                                                                        
+
+14 rows selected.
+
+SQL> select 'sql'||'plus' from dual;
+
+'SQL'||                                                                                                                                                                                                 
+-------                                                                                                                                                                                                 
+sqlplus                                                                                                                                                                                                 
+
+SQL> select mod(25.0,5) from dual;
+
+MOD(25.0,5)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+          0                                                                                                                                                                                             
+
+SQL> select abs(-1) from dual;
+
+   ABS(-1)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         1                                                                                                                                                                                              
+
+SQL> select pow(2,3) from dual;
+select pow(2,3) from dual
+       *
+ERROR at line 1:
+ORA-00904: "POW": invalid identifier 
+
+
+SQL> select power(2,3) from dual;
+
+POWER(2,3)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         8                                                                                                                                                                                              
+
+SQL> select power(2,0) from dual;
+
+POWER(2,0)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         1                                                                                                                                                                                              
+
+SQL> select sqrt(169) from dual;
+
+ SQRT(169)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        13                                                                                                                                                                                              
+
+SQL> select sqrt(200) from dual;
+
+ SQRT(200)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+14.1421356                                                                                                                                                                                              
+
+SQL> select floor(12.0) from dual;
+
+FLOOR(12.0)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         12                                                                                                                                                                                             
+
+SQL> select floor(12.1) from dual;
+
+FLOOR(12.1)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         12                                                                                                                                                                                             
+
+SQL> select floor(12.5) from dual;
+
+FLOOR(12.5)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         12                                                                                                                                                                                             
+
+SQL> select floor(12.95) from dual;
+
+FLOOR(12.95)                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+          12                                                                                                                                                                                            
+
+SQL> select ceil(10.0) from dual;
+
+CEIL(10.0)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        10                                                                                                                                                                                              
+
+SQL> select ceil(10.1) from dual;
+
+CEIL(10.1)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        11                                                                                                                                                                                              
+
+SQL> select ceil(10.5) from dual;
+
+CEIL(10.5)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        11                                                                                                                                                                                              
+
+SQL> select ceil(10.95) from dual;
+
+CEIL(10.95)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         11                                                                                                                                                                                             
+
+SQL> select round(10.1) from dual;
+
+ROUND(10.1)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         10                                                                                                                                                                                             
+
+SQL> select round(10.45) from dual;
+
+ROUND(10.45)                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+          10                                                                                                                                                                                            
+
+SQL> select round(10.5) from dual;
+
+ROUND(10.5)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         11                                                                                                                                                                                             
+
+SQL> select mod(45,2) from dual;
+
+ MOD(45,2)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         1                                                                                                                                                                                              
+
+SQL> select abs(-11) from dual;
+
+  ABS(-11)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        11                                                                                                                                                                                              
+
+SQL> select power(2,3) from dual;
+
+POWER(2,3)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         8                                                                                                                                                                                              
+
+SQL> select sqrt(25) from dual;
+
+  SQRT(25)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         5                                                                                                                                                                                              
+
+SQL> select ceil(10.5) from dual;
+
+CEIL(10.5)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        11                                                                                                                                                                                              
+
+SQL> selet floor(10.5) from dual;
+SP2-0734: unknown command beginning "selet floo..." - rest of line ignored.
+SQL> select floor(10.5) from dual;
+
+FLOOR(10.5)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         10                                                                                                                                                                                             
+
+SQL> select round(10.5) from dual;
+
+ROUND(10.5)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         11                                                                                                                                                                                             
+
+SQL> select length(ename) from emp;
+
+LENGTH(ENAME)                                                                                                                                                                                           
+-------------                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            4                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            6                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            4                                                                                                                                                                                           
+            6                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            4                                                                                                                                                                                           
+            6                                                                                                                                                                                           
+
+14 rows selected.
+
+SQL> select ename,length(ename) from emp;
+
+ENAME      LENGTH(ENAME)                                                                                                                                                                                
+---------- -------------                                                                                                                                                                                
+SMITH                  5                                                                                                                                                                                
+ALLEN                  5                                                                                                                                                                                
+WARD                   4                                                                                                                                                                                
+JONES                  5                                                                                                                                                                                
+MARTIN                 6                                                                                                                                                                                
+BLAKE                  5                                                                                                                                                                                
+CLARK                  5                                                                                                                                                                                
+SCOTT                  5                                                                                                                                                                                
+KING                   4                                                                                                                                                                                
+TURNER                 6                                                                                                                                                                                
+ADAMS                  5                                                                                                                                                                                
+JAMES                  5                                                                                                                                                                                
+FORD                   4                                                                                                                                                                                
+MILLER                 6                                                                                                                                                                                
+
+14 rows selected.
+
+SQL> select distinct job,len(job) from emp;
+select distinct job,len(job) from emp
+                    *
+ERROR at line 1:
+ORA-00904: "LEN": invalid identifier 
+
+
+SQL> select distinct job,length(job) from emp;
+
+JOB       LENGTH(JOB)                                                                                                                                                                                   
+--------- -----------                                                                                                                                                                                   
+CLERK               5                                                                                                                                                                                   
+PRESIDENT           9                                                                                                                                                                                   
+MANAGER             7                                                                                                                                                                                   
+SALESMAN            8                                                                                                                                                                                   
+ANALYST             7                                                                                                                                                                                   
+
+SQL> select distinct job,lower(job) from emp;
+
+JOB       LOWER(JOB                                                                                                                                                                                     
+--------- ---------                                                                                                                                                                                     
+ANALYST   analyst                                                                                                                                                                                       
+CLERK     clerk                                                                                                                                                                                         
+PRESIDENT president                                                                                                                                                                                     
+SALESMAN  salesman                                                                                                                                                                                      
+MANAGER   manager                                                                                                                                                                                       
+
+SQL> select lower(ename),upper(ename) from dual;
+select lower(ename),upper(ename) from dual
+                          *
+ERROR at line 1:
+ORA-00904: "ENAME": invalid identifier 
+
+
+SQL>  select lower(ename),upper(ename) from emp;
+
+LOWER(ENAM UPPER(ENAM                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+smith      SMITH                                                                                                                                                                                        
+allen      ALLEN                                                                                                                                                                                        
+ward       WARD                                                                                                                                                                                         
+jones      JONES                                                                                                                                                                                        
+martin     MARTIN                                                                                                                                                                                       
+blake      BLAKE                                                                                                                                                                                        
+clark      CLARK                                                                                                                                                                                        
+scott      SCOTT                                                                                                                                                                                        
+king       KING                                                                                                                                                                                         
+turner     TURNER                                                                                                                                                                                       
+adams      ADAMS                                                                                                                                                                                        
+james      JAMES                                                                                                                                                                                        
+ford       FORD                                                                                                                                                                                         
+miller     MILLER                                                                                                                                                                                       
+
+14 rows selected.
+
+SQL> select lower('SQL plUS') FROM DUAL;
+
+LOWER('S                                                                                                                                                                                                
+--------                                                                                                                                                                                                
+sql plus                                                                                                                                                                                                
+
+SQL> select upper('AnJali') from dual;
+
+UPPER(                                                                                                                                                                                                  
+------                                                                                                                                                                                                  
+ANJALI                                                                                                                                                                                                  
+
+SQL> select length('hai hello') from dual;
+
+LENGTH('HAIHELLO')                                                                                                                                                                                      
+------------------                                                                                                                                                                                      
+                 9                                                                                                                                                                                      
+
+SQL> select upper('is Sql IS easy') from Dual;
+
+UPPER('ISSQLIS                                                                                                                                                                                          
+--------------                                                                                                                                                                                          
+IS SQL IS EASY                                                                                                                                                                                          
+
+SQL> select  initcap('hi hello how are you') from dual;
+
+INITCAP('HIHELLOHOWA                                                                                                                                                                                    
+--------------------                                                                                                                                                                                    
+Hi Hello How Are You                                                                                                                                                                                    
+
+SQL> select * from emp
+  2  where mod(sal,2)==0 ;
+where mod(sal,2)==0 
+                 *
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL>  select * from emp
+  2   where mod(sal,2)=0;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+13 rows selected.
+
+SQL> select * from emp
+  2  where mod(sal*12,10)=0;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select ename
+  2  where job like '_____' and mod(sal,2)=1;
+where job like '_____' and mod(sal,2)=1
+*
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select ename from emp
+  2  where job like '_____' and mod(sal,2)=1;
+
+no rows selected
+
+SQL>  select ename from emp
+  2  where len(job)=5 and mod(sal,2)=1;
+where len(job)=5 and mod(sal,2)=1
+      *
+ERROR at line 2:
+ORA-00904: "LEN": invalid identifier 
+
+
+SQL>  select ename from emp
+  2  where length(job)=5 and mod(sal,2)=1;
+
+no rows selected
+
+SQL>  select ename from emp
+  2  where length(job)=5 and mod(sal,2)!=0;
+
+no rows selected
+
+SQL> select abs(sal) from emp;
+
+  ABS(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+       800                                                                                                                                                                                              
+      1600                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      2975                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      2850                                                                                                                                                                                              
+      2450                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+      1500                                                                                                                                                                                              
+      1100                                                                                                                                                                                              
+       950                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+      1300                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> select initcal(ename) from emp;
+select initcal(ename) from emp
+       *
+ERROR at line 1:
+ORA-00904: "INITCAL": invalid identifier 
+
+
+SQL>  select ename from emp
+  2  
+SQL> select initcap(ename) from emp;
+
+INITCAP(EN                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+Smith                                                                                                                                                                                                   
+Allen                                                                                                                                                                                                   
+Ward                                                                                                                                                                                                    
+Jones                                                                                                                                                                                                   
+Martin                                                                                                                                                                                                  
+Blake                                                                                                                                                                                                   
+Clark                                                                                                                                                                                                   
+Scott                                                                                                                                                                                                   
+King                                                                                                                                                                                                    
+Turner                                                                                                                                                                                                  
+Adams                                                                                                                                                                                                   
+James                                                                                                                                                                                                   
+Ford                                                                                                                                                                                                    
+Miller                                                                                                                                                                                                  
+
+14 rows selected.
+
+SQL>  select reverse('hello') from dual;
+
+REVER                                                                                                                                                                                                   
+-----                                                                                                                                                                                                   
+olleh                                                                                                                                                                                                   
+
+SQL> select ename,reverse(ename) from emp;
+
+ENAME      REVERSE(EN                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+SMITH      HTIMS                                                                                                                                                                                        
+ALLEN      NELLA                                                                                                                                                                                        
+WARD       DRAW                                                                                                                                                                                         
+JONES      SENOJ                                                                                                                                                                                        
+MARTIN     NITRAM                                                                                                                                                                                       
+BLAKE      EKALB                                                                                                                                                                                        
+CLARK      KRALC                                                                                                                                                                                        
+SCOTT      TTOCS                                                                                                                                                                                        
+KING       GNIK                                                                                                                                                                                         
+TURNER     RENRUT                                                                                                                                                                                       
+ADAMS      SMADA                                                                                                                                                                                        
+JAMES      SEMAJ                                                                                                                                                                                        
+FORD       DROF                                                                                                                                                                                         
+MILLER     RELLIM                                                                                                                                                                                       
+
+14 rows selected.
+
+SQL> select replace('developers',7) from dual;
+
+REPLACE('D                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+developers                                                                                                                                                                                              
+
+SQL> select replace('developers',ers) from dual;
+select replace('developers',ers) from dual
+                            *
+ERROR at line 1:
+ORA-00904: "ERS": invalid identifier 
+
+
+SQL> select replace('developers','ers') from dual;
+
+REPLACE                                                                                                                                                                                                 
+-------                                                                                                                                                                                                 
+develop                                                                                                                                                                                                 
+
+SQL> select replace('java','va','ma') from dual;
+
+REPL                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+jama                                                                                                                                                                                                    
+
+SQL> select replace('developers','e') from dual;
+
+REPLACE                                                                                                                                                                                                 
+-------                                                                                                                                                                                                 
+dvloprs                                                                                                                                                                                                 
+
+SQL> select replace('anjali','ali','u') from dual;
+
+REPL                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+anju                                                                                                                                                                                                    
+
+SQL> select replace('anjali','a') fom dual;
+select replace('anjali','a') fom dual
+                                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  select replace('anjali','a') from dual;
+
+REPL                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+njli                                                                                                                                                                                                    
+
+SQL> select substr('developers',e,3) from dual;
+select substr('developers',e,3) from dual
+                           *
+ERROR at line 1:
+ORA-00904: "E": invalid identifier 
+
+
+SQL> select substr('developers','e',3) from dual;
+select substr('developers','e',3) from dual
+                           *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> select substr('developers','e',2) from dual;
+select substr('developers','e',2) from dual
+                           *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> select substr('welcome',1,3) from dual;
+
+SUB                                                                                                                                                                                                     
+---                                                                                                                                                                                                     
+wel                                                                                                                                                                                                     
+
+SQL> select substr('developers',7,3) from dual;
+
+SUB                                                                                                                                                                                                     
+---                                                                                                                                                                                                     
+per                                                                                                                                                                                                     
+
+SQL> select substr('developers',7,4) from dual;
+
+SUBS                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+pers                                                                                                                                                                                                    
+
+SQL> select substr('welcome',1,3) from dual;
+
+SUB                                                                                                                                                                                                     
+---                                                                                                                                                                                                     
+wel                                                                                                                                                                                                     
+
+SQL> select substr('welcome',4) from dual;
+
+SUBS                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+come                                                                                                                                                                                                    
+
+SQL> select instr('developers','e') from dual;
+
+INSTR('DEVELOPERS','E')                                                                                                                                                                                 
+-----------------------                                                                                                                                                                                 
+                      2                                                                                                                                                                                 
+
+SQL> select instr('developers','e',2,1) from dual;
+
+INSTR('DEVELOPERS','E',2,1)                                                                                                                                                                             
+---------------------------                                                                                                                                                                             
+                          2                                                                                                                                                                             
+
+SQL> select instr('developers','e',3,2) from dual;
+
+INSTR('DEVELOPERS','E',3,2)                                                                                                                                                                             
+---------------------------                                                                                                                                                                             
+                          8                                                                                                                                                                             
+
+SQL> select translate('java','va','pn') from dual;
+
+TRAN                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+jnpn                                                                                                                                                                                                    
+
+SQL> select replace('anjali','a','p') from dual;
+
+REPLAC                                                                                                                                                                                                  
+------                                                                                                                                                                                                  
+pnjpli                                                                                                                                                                                                  
+
+SQL> select translate('anjali','a','p') from dual;
+
+TRANSL                                                                                                                                                                                                  
+------                                                                                                                                                                                                  
+pnjpli                                                                                                                                                                                                  
+
+SQL> select concat(ename,sal) from dual;
+select concat(ename,sal) from dual
+                    *
+ERROR at line 1:
+ORA-00904: "SAL": invalid identifier 
+
+
+SQL> select concat(ename,sal) from emp;
+
+CONCAT(ENAME,SAL)                                                                                                                                                                                       
+--------------------------------------------------                                                                                                                                                      
+SMITH800                                                                                                                                                                                                
+ALLEN1600                                                                                                                                                                                               
+WARD1250                                                                                                                                                                                                
+JONES2975                                                                                                                                                                                               
+MARTIN1250                                                                                                                                                                                              
+BLAKE2850                                                                                                                                                                                               
+CLARK2450                                                                                                                                                                                               
+SCOTT3000                                                                                                                                                                                               
+KING5000                                                                                                                                                                                                
+TURNER1500                                                                                                                                                                                              
+ADAMS1100                                                                                                                                                                                               
+JAMES950                                                                                                                                                                                                
+FORD3000                                                                                                                                                                                                
+MILLER1300                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> select ascii('a') from dual;
+
+ASCII('A')                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        97                                                                                                                                                                                              
+
+SQL> select ascii('A') from dual;
+
+ASCII('A')                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        65                                                                                                                                                                                              
+
+SQL> select ascii('@') from dual;
+
+ASCII('@')                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        64                                                                                                                                                                                              
+
+SQL> select ascii(&) from dual;
+select ascii(&) from dual
+              *
+ERROR at line 1:
+ORA-01745: invalid host/bind variable name 
+
+
+SQL>  select ascii(&) from dual;
+ select ascii(&) from dual
+               *
+ERROR at line 1:
+ORA-01745: invalid host/bind variable name 
+
+
+SQL> select ascii('*') from dual;
+
+ASCII('*')                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        42                                                                                                                                                                                              
+
+SQL> select trim('   anjali    ') from dual;
+
+TRIM('                                                                                                                                                                                                  
+------                                                                                                                                                                                                  
+anjali                                                                                                                                                                                                  
+
+SQL> select trim('anjali') from dual;
+
+TRIM('                                                                                                                                                                                                  
+------                                                                                                                                                                                                  
+anjali                                                                                                                                                                                                  
+
+SQL> select trim('H' from 'hello') from dual;
+
+TRIM(                                                                                                                                                                                                   
+-----                                                                                                                                                                                                   
+hello                                                                                                                                                                                                   
+
+SQL> select('h' from 'hai') from dual;
+select('h' from 'hai') from dual
+           *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select trim('h' from 'hai') from dual;
+
+TR                                                                                                                                                                                                      
+--                                                                                                                                                                                                      
+ai                                                                                                                                                                                                      
+
+SQL> select trim('ha' from 'hai') from dual;
+select trim('ha' from 'hai') from dual
+       *
+ERROR at line 1:
+ORA-30001: trim set should have only one character 
+
+
+SQL> select trim('s' from 'asd') from dual;
+
+TRI                                                                                                                                                                                                     
+---                                                                                                                                                                                                     
+asd                                                                                                                                                                                                     
+
+SQL> select trim('s' from 'as') from dual;
+
+T                                                                                                                                                                                                       
+-                                                                                                                                                                                                       
+a                                                                                                                                                                                                       
+
+SQL> select lpad('smith',10,'hello') from dual;
+
+LPAD('SMIT                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+hellosmith                                                                                                                                                                                              
+
+SQL> select lpad('smith',14,'hello') from dual;
+
+LPAD('SMITH',1                                                                                                                                                                                          
+--------------                                                                                                                                                                                          
+hellohellsmith                                                                                                                                                                                          
+
+SQL> select rpad('smith',14,'hello') from dual;
+
+RPAD('SMITH',1                                                                                                                                                                                          
+--------------                                                                                                                                                                                          
+smithhellohell                                                                                                                                                                                          
+
+SQL> select rpad('smith',
+  2  8,'hello') from dual;
+
+RPAD('SM                                                                                                                                                                                                
+--------                                                                                                                                                                                                
+smithhel                                                                                                                                                                                                
+
+SQL> select nval(comm,12345) from emp;
+select nval(comm,12345) from emp
+       *
+ERROR at line 1:
+ORA-00904: "NVAL": invalid identifier 
+
+
+SQL> select nvl(comm,1234) from emp;
+
+NVL(COMM,1234)                                                                                                                                                                                          
+--------------                                                                                                                                                                                          
+          1234                                                                                                                                                                                          
+           300                                                                                                                                                                                          
+           500                                                                                                                                                                                          
+          1234                                                                                                                                                                                          
+          1400                                                                                                                                                                                          
+          1234                                                                                                                                                                                          
+          1234                                                                                                                                                                                          
+          1234                                                                                                                                                                                          
+          1234                                                                                                                                                                                          
+             0                                                                                                                                                                                          
+          1234                                                                                                                                                                                          
+          1234                                                                                                                                                                                          
+          1234                                                                                                                                                                                          
+          1234                                                                                                                                                                                          
+
+14 rows selected.
+
+SQL> select nvl2(comm,1234,5678999) from emp;
+
+NVL2(COMM,1234,5678999)                                                                                                                                                                                 
+-----------------------                                                                                                                                                                                 
+                5678999                                                                                                                                                                                 
+                   1234                                                                                                                                                                                 
+                   1234                                                                                                                                                                                 
+                5678999                                                                                                                                                                                 
+                   1234                                                                                                                                                                                 
+                5678999                                                                                                                                                                                 
+                5678999                                                                                                                                                                                 
+                5678999                                                                                                                                                                                 
+                5678999                                                                                                                                                                                 
+                   1234                                                                                                                                                                                 
+                5678999                                                                                                                                                                                 
+                5678999                                                                                                                                                                                 
+                5678999                                                                                                                                                                                 
+                5678999                                                                                                                                                                                 
+
+14 rows selected.
+
+SQL> spool off

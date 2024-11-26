@@ -1,0 +1,259 @@
+#3-06-2024
+.
+l=["anjali","suma","Ramya","swarna","Anu"]
+l[4]
+'Anu'
+l[3][::-1]
+'anraws'
+l[1][2::-1]
+'mus'
+l[0:4:]
+['anjali', 'suma', 'Ramya', 'swarna']
+l[1][1::]
+'uma'
+l[2][2::3]
+'m'
+l[3][:0:-2]
+'arw'
+l[0][-1:3:-2]
+'i'
+l[4][::-2]
+'uA'
+l[1][1:4:2]
+'ua'
+l[0:3:2]
+['anjali', 'Ramya']
+l[::-1]
+['Anu', 'swarna', 'Ramya', 'suma', 'anjali']
+l[::-1][::-1]
+['anjali', 'suma', 'Ramya', 'swarna', 'Anu']
+l[2][1::3]
+'aa'
+l[4][::-1]
+'unA'
+l[0::-1]
+['anjali']
+l[3::]
+['swarna', 'Anu']
+l[2::-1]
+['Ramya', 'suma', 'anjali']
+
+
+#4-6-2024 multiple values modifying
+l=['anjali',['ramya','suma'],'anusha']
+l[1]
+['ramya', 'suma']
+l[1][1][1::]
+'uma'
+l[1][0][1::3]
+'aa'
+l[2][0::5]
+'aa'
+l[1:3:-1]
+[]
+l[1::-1]
+[['ramya', 'suma'], 'anjali']
+l[::-1]
+['anusha', ['ramya', 'suma'], 'anjali']
+l[2][::-1]
+'ahsuna'
+l[1][::-1]
+['suma', 'ramya']
+l[1][1][::-1]
+'amus'
+l[1][1::-1]
+['suma', 'ramya']
+l[1][:0:]
+[]
+l[1][:0:-1]
+['suma']
+l[1][-1::-1]
+['suma', 'ramya']
+l[1]="amma'
+
+l[1]="amma"
+l
+['anjali', 'amma', 'anusha']
+l=['anjali',['ramya','suma'],'anusha']
+l[1][0]="chinni"
+l
+['anjali', ['chinni', 'suma'], 'anusha']
+l[1]="sun"
+l
+['anjali', 'sun', 'anusha']
+l[1:]="suma"
+l
+['anjali', 's', 'u', 'm', 'a']
+
+
+05-06-2024
+
+a=(11,12,[100,200,["hello","how",10],50],45,'python',(10,15,(20,25,"Jspiders"),30),"anjali")
+a[2][2][1]
+'how'
+a[5][2][2]
+'Jspiders'
+a[2][3]
+50
+a[4]
+'python'
+a[5][2][2][1:7:1]
+'spider'
+a[2][0][::2]
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    a[2][0][::2]
+TypeError: 'int' object is not subscriptable
+a[2][2][0][::2]
+'hlo'
+a[4][::-2]
+'nhy'
+a[5][2]
+(20, 25, 'Jspiders')
+a[2][2][-1:-3:-1]
+[10, 'how']
+a[5][2][::-1]
+('Jspiders', 25, 20)
+  a[-2][-2][-2:-4:-1]
+  
+SyntaxError: unexpected indent
+a[-2][-2][-2:-4:-1]
+(25, 20)
+a[-5][-2::-1]
+[['hello', 'how', 10], 200, 100]
+a[1][::-1]
+Traceback (most recent call last):
+  File "<pyshell#15>", line 1, in <module>
+    a[1][::-1]
+TypeError: 'int' object is not subscriptable
+ a[-5][-1:-3:-1][::-1]
+ 
+SyntaxError: unexpected indent
+a[-5][-1:-3:-1][::-1]
+[['hello', 'how', 10], 50]
+a[-5][-1:-3:-1]
+[50, ['hello', 'how', 10]]
+ a[-2][-2][-1][-2:0:-1]
+ 
+SyntaxError: unexpected indent
+a[-2][-2][-1][-2:0:-1]
+'redips'
+a[-2][-2][-1][-2:0:-1][::-1]
+'spider'
+a[-3][::-1]
+'nohtyp'
+a[-6]
+12
+a[-1][3::1]
+'ali'
+a[-5][-1:-3:-1][::-1]
+[['hello', 'how', 10], 50]
+a[-2][-2][-1][:-8:-3]
+'sds'
+a[-3][::-3]
+'nt'
+a[-5][-2::-1]
+[['hello', 'how', 10], 200, 100]
+a[-5][-2][-3][::-1]
+'olleh'
+a[-2][-2][-2:-4:-1]
+(25, 20)
+ a[-1:-5:-2]
+ 
+SyntaxError: unexpected indent
+a[-1:-5:-2]
+('anjali', 'python')
+a[0::-1]
+(11,)
+a[::-1]
+('anjali', (10, 15, (20, 25, 'Jspiders'), 30), 'python', 45, [100, 200, ['hello', 'how', 10], 50], 12, 11)
+a[-2:1:-4]
+((10, 15, (20, 25, 'Jspiders'), 30),)
+a[-2:1:-4][::-1]
+((10, 15, (20, 25, 'Jspiders'), 30),)
+a[-2:1:-3][::-1]
+([100, 200, ['hello', 'how', 10], 50], (10, 15, (20, 25, 'Jspiders'), 30))
+a[-2:1:-2][::-1]
+(45, (10, 15, (20, 25, 'Jspiders'), 30))
+a[-6:-8:-1]
+(12, 11)
+a[4::-3]
+('python', 12)
+a[4::-3][::-1]
+(12, 'python')
+a[::-3]
+('anjali', 45, 11)
+a[4::-4]
+('python', 11)
+a[1::-1][::-1]
+(11, 12)
+a[3::-1]
+(45, [100, 200, ['hello', 'how', 10], 50], 12, 11)
+ a[5:1:1]
+ 
+SyntaxError: unexpected indent
+a[5:1:1]
+()
+a[-6:6:3]
+(12, 'python')
+a[:3:4]
+(11,)
+a[5:1;1]
+SyntaxError: invalid syntax
+a[5:1:1]
+()
+a[::3]
+(11, 45, 'anjali')
+a[:5:4]
+(11, 'python')
+a[:-2:2]
+(11, [100, 200, ['hello', 'how', 10], 50], 'python')
+[4::2]
+SyntaxError: invalid syntax
+a[4::2]
+('python', 'anjali')
+a[:4:3]
+(11, 45)
+a[:-5:-1]
+('anjali', (10, 15, (20, 25, 'Jspiders'), 30), 'python', 45)
+a[:-5:]
+(11, 12)
+a[-4:-2:1]
+(45, 'python')
+ a[2][1]='hai'
+ 
+SyntaxError: unexpected indent
+a[2][1]="hai
+SyntaxError: unterminated string literal (detected at line 1)
+a[2][1]="hai"
+a
+(11, 12, [100, 'hai', ['hello', 'how', 10], 50], 45, 'python', (10, 15, (20, 25, 'Jspiders'), 30), 'anjali')
+a[2][2::]=[550,75,60]
+a
+(11, 12, [100, 'hai', 550, 75, 60], 45, 'python', (10, 15, (20, 25, 'Jspiders'), 30), 'anjali')
+a[2][2][::1]=[550,75,60]
+Traceback (most recent call last):
+  File "<pyshell#67>", line 1, in <module>
+    a[2][2][::1]=[550,75,60]
+TypeError: 'int' object does not support item assignment
+a=(11, 12, [100, 'hai', ['hello', 'how', 10], 50], 45, 'python', (10, 15, (20, 25, 'Jspiders'), 30), 'anjali')
+a[2][2][::1]=[550,75,60]
+a
+(11, 12, [100, 'hai', [550, 75, 60], 50], 45, 'python', (10, 15, (20, 25, 'Jspiders'), 30), 'anjali')
+a[2][2][::2]=[17,27,37]
+Traceback (most recent call last):
+  File "<pyshell#71>", line 1, in <module>
+    a[2][2][::2]=[17,27,37]
+ValueError: attempt to assign sequence of size 3 to extended slice of size 2
+a[2][2][::2]=[17,27]
+a
+(11, 12, [100, 'hai', [17, 75, 27], 50], 45, 'python', (10, 15, (20, 25, 'Jspiders'), 30), 'anjali')
+del a[2][2]
+a
+(11, 12, [100, 'hai', 50], 45, 'python', (10, 15, (20, 25, 'Jspiders'), 30), 'anjali')
+del a[-2][-2][-1]
+Traceback (most recent call last):
+  File "<pyshell#76>", line 1, in <module>
+    del a[-2][-2][-1]
+TypeError: 'tuple' object doesn't support item deletion
+

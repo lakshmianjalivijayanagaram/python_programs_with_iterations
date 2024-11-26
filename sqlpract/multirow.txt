@@ -1,0 +1,108 @@
+SQL> select max(sal) from emp;
+
+  MAX(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+
+SQL> select ename,max(sal) from emp;
+select ename,max(sal) from emp
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> select max(sal) from emp
+  2  where job='SALESMAN';
+
+  MAX(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      1600                                                                                                                                                                                              
+
+SQL> select max(hiredate) from emp;
+
+MAX(HIRED                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+23-MAY-87                                                                                                                                                                                               
+
+SQL> select min(sal) from emp;
+
+  MIN(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+       800                                                                                                                                                                                              
+
+SQL> select min(hiredate) from emp;
+
+MIN(HIRED                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+17-DEC-80                                                                                                                                                                                               
+
+SQL> select avg(comm) from emp
+  2  where job='CLERK';
+
+ AVG(COMM)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+                                                                                                                                                                                                        
+
+SQL> select avg(comm) from emp;
+
+ AVG(COMM)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+       550                                                                                                                                                                                              
+
+SQL> select sum(sal) from emp
+  2  where job='MANAGER';
+
+  SUM(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      8275                                                                                                                                                                                              
+
+SQL> select sum(comm) from emp
+  2  where deptno=30;
+
+ SUM(COMM)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      2200                                                                                                                                                                                              
+
+SQL> select ename,count(ename)/2 from emp;
+select ename,count(ename)/2 from emp
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> select count(ename) from emp
+  2  where comm is not null;
+
+COUNT(ENAME)                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+           4                                                                                                                                                                                            
+
+SQL> select count(comm) from emp;
+
+COUNT(COMM)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+          4                                                                                                                                                                                             
+
+SQL> select count('SALESMAN') from emp
+  2  where job='SALESMAN';
+
+COUNT('SALESMAN')                                                                                                                                                                                       
+-----------------                                                                                                                                                                                       
+                4                                                                                                                                                                                       
+
+SQL> select count(*) from emp
+  2  where job='SALESMAN';
+
+  COUNT(*)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         4                                                                                                                                                                                              
+
+SQL> select count(*) from emp
+  2  where deptno=30 and count(*)>3;
+where deptno=30 and count(*)>3
+                    *
+ERROR at line 2:
+ORA-00934: group function is not allowed here 
+
+
+SQL> spool off

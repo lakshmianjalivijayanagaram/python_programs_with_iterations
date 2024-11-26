@@ -1,0 +1,37 @@
+SQL> select * from dual;
+
+D                                                                               
+-                                                                               
+X                                                                               
+
+SQL> select 'sql'||'plus' from dual;
+
+'SQL'||                                                                         
+-------                                                                         
+sqlplus                                                                         
+
+SQL> select ename||'is getting salary is'||sal from emp;
+
+ENAME||'ISGETTINGSALARYIS'||SAL                                                 
+----------------------------------------------------------------------          
+SMITHis getting salary is800                                                    
+ALLENis getting salary is1600                                                   
+WARDis getting salary is1250                                                    
+JONESis getting salary is2975                                                   
+MARTINis getting salary is1250                                                  
+BLAKEis getting salary is2850                                                   
+CLARKis getting salary is2450                                                   
+SCOTTis getting salary is3000                                                   
+KINGis getting salary is5000                                                    
+TURNERis getting salary is1500                                                  
+ADAMSis getting salary is1100                                                   
+
+ENAME||'ISGETTINGSALARYIS'||SAL                                                 
+----------------------------------------------------------------------          
+JAMESis getting salary is950                                                    
+FORDis getting salary is3000                                                    
+MILLERis getting salary is1300                                                  
+
+14 rows selected.
+
+SQL> spool off

@@ -1,0 +1,397 @@
+SQL> create table product(pid number(5),
+  2  
+SQL> create table product(
+  2  pid number(5) primary key,
+  3  pname varchar(20) unique,
+  4  price number(3) check(price<800),
+  5  noofpro number(3) defult(100),
+  6  mdate date)
+  7  ;
+noofpro number(3) defult(100),
+                  *
+ERROR at line 5:
+ORA-00907: missing right parenthesis 
+
+
+SQL> 
+SQL>  create table product(
+  2   pid number(5) primary key,
+  3   pname varchar(20) unique,
+  4   price number(3) check(price<800),
+  5   noofpro number(3) default(100),
+  6  mdate date);
+
+Table created.
+
+SQL> create table customer(
+  2  cid number(5) primary key,
+  3  cname varchar(20) not null,
+  4  gender varchar(1) not null,
+  5  age number(2),
+  6  pid number(5) references product(pid));
+
+Table created.
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+AUTHOR                         TABLE                                            
+BOOK                           TABLE                                            
+PRODUCT                        TABLE                                            
+CUSTOMER                       TABLE                                            
+
+8 rows selected.
+
+SQL> DESC PRODUCT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                       NOT NULL NUMBER(5)
+ PNAME                                              VARCHAR2(20)
+ PRICE                                              NUMBER(3)
+ NOOFPRO                                            NUMBER(3)
+ MDATE                                              DATE
+
+SQL> ALTER TABLE PRODUCT
+  2  ADD EXPDATE DATE;
+
+Table altered.
+
+SQL> DESC TABLE
+ERROR:
+ORA-00931: missing identifier 
+
+
+SQL> DESC PRODUCT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                       NOT NULL NUMBER(5)
+ PNAME                                              VARCHAR2(20)
+ PRICE                                              NUMBER(3)
+ NOOFPRO                                            NUMBER(3)
+ MDATE                                              DATE
+ EXPDATE                                            DATE
+
+SQL> ALTER TABLE PRODUCT
+  2  RENAME COLUMN PRICE TO MRP;
+
+Table altered.
+
+SQL> DESC PRODUCT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                       NOT NULL NUMBER(5)
+ PNAME                                              VARCHAR2(20)
+ MRP                                                NUMBER(3)
+ NOOFPRO                                            NUMBER(3)
+ MDATE                                              DATE
+ EXPDATE                                            DATE
+
+SQL> ALTER TABLE PRODUCT
+  2  drop COLUMN NOOFPRO;
+
+Table altered.
+
+SQL> DESC PRODUCT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                       NOT NULL NUMBER(5)
+ PNAME                                              VARCHAR2(20)
+ MRP                                                NUMBER(3)
+ MDATE                                              DATE
+ EXPDATE                                            DATE
+
+SQL> ALTER TABLE PRODUCT
+  2  MODIFY PNAME VARCHAR2(22);
+
+Table altered.
+
+SQL> DESC PRODUCT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                       NOT NULL NUMBER(5)
+ PNAME                                              VARCHAR2(22)
+ MRP                                                NUMBER(3)
+ MDATE                                              DATE
+ EXPDATE                                            DATE
+
+SQL> DROP TABLE CUSTOMER;
+
+Table dropped.
+
+SQL> DROP TABLE product;
+
+Table dropped.
+
+SQL> show recyclebin;
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME          
+---------------- ------------------------------ ------------ -------------------
+CUSTOMER         BIN$DC2dnw36RYa8MoKuaSnBpg==$0 TABLE        2024-07-28:14:05:33
+PRODUCT          BIN$seIyE3YjQkKLoF1NH5UMOg==$0 TABLE        2024-07-28:14:05:46
+SQL> flashback table customer to before drop;
+
+Flashback complete.
+
+SQL> select * from table;
+select * from table
+                  *
+ERROR at line 1:
+ORA-00906: missing left parenthesis 
+
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+AUTHOR                         TABLE                                            
+BOOK                           TABLE                                            
+CUSTOMER                       TABLE                                            
+BIN$seIyE3YjQkKLoF1NH5UMOg==$0 TABLE                                            
+
+8 rows selected.
+
+SQL> purge table product;
+
+Table purged.
+
+SQL> purge recyclebin;
+
+Recyclebin purged.
+
+SQL>  create table product(
+  2   pid number(5) primary key,
+  3   pname varchar(20) unique,
+  4   price number(3) check(price<800),
+  5   noofpro number(3) default(100),
+  6  mdate date);
+
+Table created.
+
+SQL> desc product;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                       NOT NULL NUMBER(5)
+ PNAME                                              VARCHAR2(20)
+ PRICE                                              NUMBER(3)
+ NOOFPRO                                            NUMBER(3)
+ MDATE                                              DATE
+
+SQL> alter table product
+  2  add expdate date;
+
+Table altered.
+
+SQL> alter table product
+  2  rename column price to mrp;
+
+Table altered.
+
+SQL> alter table product
+  2  drop column NOOFPRO;
+
+Table altered.
+
+SQL> ALTER TABLE PRODUCT
+  2  MODIFY PNAME VARCHAR(30);
+
+Table altered.
+
+SQL> DESC PRODUCT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                       NOT NULL NUMBER(5)
+ PNAME                                              VARCHAR2(30)
+ MRP                                                NUMBER(3)
+ MDATE                                              DATE
+ EXPDATE                                            DATE
+
+SQL> drop table customer;
+
+Table dropped.
+
+SQL> drop table poduct;
+drop table poduct
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> drop table product;
+
+Table dropped.
+
+SQL> show recyclebin;
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME          
+---------------- ------------------------------ ------------ -------------------
+CUSTOMER         BIN$ioprbheiT+yF8iF2Ic2BCQ==$0 TABLE        2024-07-28:14:11:42
+PRODUCT          BIN$UnYBryGhTvGLehP+NVfs6w==$0 TABLE        2024-07-28:14:12:03
+SQL> flashback table customer to before drop;
+
+Flashback complete.
+
+SQL> flashback table product to before drop;
+
+Flashback complete.
+
+SQL> purge table customer;
+purge table customer
+*
+ERROR at line 1:
+ORA-38307: object not in RECYCLE BIN 
+
+
+SQL> purge recyclebin;
+
+Recyclebin purged.
+
+SQL> show recyclebin;
+SQL> select * fro salgrade;
+select * fro salgrade
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select * from salgrade;
+
+     GRADE      LOSAL      HISAL                                                
+---------- ---------- ----------                                                
+         1        700       1200                                                
+         2       1201       1400                                                
+         3       1401       2000                                                
+         4       2001       3000                                                
+         5       3001       9999                                                
+
+SQL> truncate table salgrade;
+
+Table truncated.
+
+SQL> select * from salgrade;
+
+no rows selected
+
+SQL> desc salgrade;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ GRADE                                              NUMBER
+ LOSAL                                              NUMBER
+ HISAL                                              NUMBER
+
+SQL> rename author to publisher;
+
+Table renamed.
+
+SQL> 
+SQL> insert into publisher values(10,'A',21,5);
+
+1 row created.
+
+SQL> DESC PUBLISHER;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ AID                                       NOT NULL NUMBER(5)
+ ANAME                                              VARCHAR2(20)
+ AGE                                       NOT NULL NUMBER(2)
+ NOOFBOOKS                                          NUMBER(2)
+
+SQL> INSERT INTO PUBLISHER(AID,AGE,ANAME)
+  2  values(2,25,'B');
+
+1 row created.
+
+SQL> INSERT INTO PUBLISHER(NOOFBOOKS,AGE,AID,ANAME)
+  2  VALUES(10,30,3,'C');
+
+1 row created.
+
+SQL> select * from publisher;
+
+       AID ANAME                       AGE  NOOFBOOKS                           
+---------- -------------------- ---------- ----------                           
+        10 A                            21          5                           
+         2 B                            25                                      
+         3 C                            30         10                           
+
+SQL> commit;
+
+Commit complete.
+
+SQL> update publisher set aname='ram' , age=27
+  2  where aid=10;
+
+1 row updated.
+
+SQL> select * from publisher;
+
+       AID ANAME                       AGE  NOOFBOOKS                           
+---------- -------------------- ---------- ----------                           
+        10 ram                          27          5                           
+         2 B                            25                                      
+         3 C                            30         10                           
+
+SQL> update publisher set aid=20
+  2  where aname='B';
+
+1 row updated.
+
+SQL> update publisher set aid=30
+  2  where noofbooks=10;
+
+1 row updated.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from publisher;
+
+       AID ANAME                       AGE  NOOFBOOKS                           
+---------- -------------------- ---------- ----------                           
+        10 ram                          27          5                           
+        20 B                            25                                      
+        30 C                            30         10                           
+
+SQL> update publisher set noofbooks=2
+  2  where aid=20;
+
+1 row updated.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from publisher;
+
+       AID ANAME                       AGE  NOOFBOOKS                           
+---------- -------------------- ---------- ----------                           
+        10 ram                          27          5                           
+        20 B                            25          2                           
+        30 C                            30         10                           
+
+SQL> delete fro publisher
+  2  where aid in(30,40);
+delete fro publisher
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> delete from publisher
+  2  where aid in(30,40);
+
+1 row deleted.
+
+SQL> delete from publisher
+  2  where aid=30;
+
+0 rows deleted.
+
+SQL> spool off

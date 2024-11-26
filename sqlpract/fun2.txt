@@ -1,0 +1,45 @@
+SQL> set lines 200 pages 200;
+SQL> select reverse('eye'),reverse('madam'),reverse('malayalam'),reverse('mam')
+  2  ,reverse('wow') from dual;
+
+REV REVER REVERSE(' REV REV                                                                                                                                                                             
+--- ----- --------- --- ---                                                                                                                                                                             
+eye madam malayalam mam wow                                                                                                                                                                             
+
+SQL> select * from emp
+  2  where instr(ename,'A')>0;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+
+7 rows selected.
+
+SQL> select * from emp
+  2  where (substr(job,1,1)='E' or substr(job,1,1)='A' or substr(job,1,1)='I' or substr(job,1,1)='E'or substr(job,1,1)='O' or substr(job,1,1)='U') and (substr(job,-1,1)='A' or substr(job,-1,1)='E' orsubstr(job,-1,1)='I' or substr(job,-1,1)='O' or substr(job,-1,1)='U') and  instr(ename,'A')>0;
+where (substr(job,1,1)='E' or substr(job,1,1)='A' or substr(job,1,1)='I' or substr(job,1,1)='E'or substr(job,1,1)='O' or substr(job,1,1)='U') and (substr(job,-1,1)='A' or substr(job,-1,1)='E' orsubstr(job,-1,1)='I' or substr(job,-1,1)='O' or substr(job,-1,1)='U') and  instr(ename,'A')>0
+                                                                                                                                                                   *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL>  select * from emp
+  2   where (substr(job,1,1)='E' or substr(job,1,1)='A' or substr(job,1,1)='I' or substr(job,1,1)='E'or substr(job,1,1)='O' or substr(job,1,1)='U') and (substr(job,-1,1)='A' or substr(job,-1,1)='E' orsubstr(job,-1,1)='I' or substr(job,-1,1)='O' or substr(job,-1,1)='U') and instr(ename,'A')>0 ;
+ where (substr(job,1,1)='E' or substr(job,1,1)='A' or substr(job,1,1)='I' or substr(job,1,1)='E'or substr(job,1,1)='O' or substr(job,1,1)='U') and (substr(job,-1,1)='A' or substr(job,-1,1)='E' orsubstr(job,-1,1)='I' or substr(job,-1,1)='O' or substr(job,-1,1)='U') and instr(ename,'A')>0 
+                                                                                                                                                                    *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select * from emp
+  2  where (substr(job,1,1)='E' or substr(job,1,1)='A' or substr(job,1,1)='I' or  substr(job,1,1)='O' or substr(job,1,1)='U') and (substr(job,-1,1)='A' or substr(job,-1,1)='E' or substr(job,-1,1)='I' or substr(job,-1,1)='O' or substr(job,-1,1)='U') and instr(ename,'A')>0 ;
+
+no rows selected
+
+SQL> spool off

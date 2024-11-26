@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        no_type();
+        function no_type()
+        {
+            a=10;//bad practise without using variabletype creating variable
+            console.log(a);
+        }
+        main();
+        function main()
+        {//using let we can reinitialize but not redeclare
+            let a;//declaration
+            a=10;//initialization
+            console.log(a);
+            a=20;
+            console.log(a);
+            a=30;
+            console.log(a);
+        }
+        m1();
+        function m1()
+        {//var variable can be redeclare reinitiaze
+            var b;
+            b=10;
+            console.log(b);
+            var b;
+            b=100;
+            console.log(b);
+        }
+        m2();
+        function m2()
+        {//const cannot be redeclared or reinitialized;
+            const a=20;
+            console.log(a);
+        
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

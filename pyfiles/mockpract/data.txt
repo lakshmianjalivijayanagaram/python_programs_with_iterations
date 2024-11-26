@@ -1,0 +1,6 @@
+hai hello this is my second file operation 
+hai
+anjali
+hai hello this is my append file operation 
+hai
+anjali

@@ -1,0 +1,56 @@
+SQL> create table author(AID NUMBER(5) PRIMARYKEY,ANAME VARCHAR(20) UNIQUE,AGE NUMBER(2) NOTNULL,NOOFBOOKS NUMBER(2));
+create table author(AID NUMBER(5) PRIMARYKEY,ANAME VARCHAR(20) UNIQUE,AGE NUMBER(2) NOTNULL,NOOFBOOKS NUMBER(2))
+                                  *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE AUTHOR(AID NUMBER(5) PRIMARYKEY,ANAME VARCHAR(20) UNIQUE,
+  2  AGE NUMBER(2) NOTNULL,NOOFBOOKS NUMBER(2));
+CREATE TABLE AUTHOR(AID NUMBER(5) PRIMARYKEY,ANAME VARCHAR(20) UNIQUE,
+                                  *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL>  CREATE TABLE AUTHOR(AID NUMBER(5)PRIMARYKEY,ANAME VARCHER(20)UNIQUE,
+  2  AGE NUMBER(2)NOTNULL,NOOFBOOKS NUMBER(2));
+ CREATE TABLE AUTHOR(AID NUMBER(5)PRIMARYKEY,ANAME VARCHER(20)UNIQUE,
+                                  *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL>  CREATE TABLE AUTHOR(AID NUMBER(5)PRIMARY KEY,ANAME VARCHER(20)UNIQUE,
+  2   AGE NUMBER(2)NOTNULL,NOOFBOOKS NUMBER(2));
+ CREATE TABLE AUTHOR(AID NUMBER(5)PRIMARY KEY,ANAME VARCHER(20)UNIQUE,
+                                                           *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE AUTHOR(
+  2  AID NUMBER(5) PRIMARY KEY,
+  3  ANAME VARCHAR(20) UNIQUE,
+  4  AGE NUMBER(2) NOT NULL,
+  5  NOOFBOOKS NUMBER(2));
+
+Table created.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+AUTHOR                         TABLE                                            
+
+SQL> SHOW USERNAME;
+SP2-0158: unknown SHOW option "USERNAME"
+SQL> SHOW USER;
+USER is "SCOTT"
+SQL> 
+SQL> 
+SQL> SPOOL OFF

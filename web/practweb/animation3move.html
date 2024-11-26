@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Animations</title>
+    <style>
+        body{
+            background-color: rgb(98, 112, 98);
+        }
+        div
+        {
+            height:100px;
+            width:100px;
+            border:2px solid black;
+            animation-name: moving;
+            animation-duration: 6s;
+            background-color: rgb(255, 0, 170);
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            border-radius: 50px;
+            animation-direction:normal;
+        }
+        @keyframes moving{
+            0%,100%
+            {
+                background-color:aqua;
+                border:2px solid black;
+                top:0px;
+                left:0px;
+                position:relative;
+            }
+            25%
+            {
+                background-color:palevioletred;
+                border:2px solid black;
+                top:0px;
+                left:400px;
+                position:relative;
+            }
+            50%
+            {
+                background-color:blue;
+                border:2px solid black;
+                top:300px;
+                left:400px; 
+                position:relative;  
+            }
+            75%
+            {
+                background-color:brown;
+                border:2px solid black;
+                top:300px;
+                left:0px;   
+            }
+
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

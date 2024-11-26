@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Screensize</title>
+</head>
+<body>
+    <h1>Screensize:<span id="display">0</span>px</h1>
+    <script>
+        let spanTag=documet.getElementById('display');
+        window.addEventListener('resize',function()
+        {
+            let Screensize=window.innerWidth;
+            spanTag.textContent=Screensize;
+        }
+    </script>
+</body>
+</html>

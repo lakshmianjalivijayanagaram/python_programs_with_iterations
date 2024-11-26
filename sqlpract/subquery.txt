@@ -1,0 +1,379 @@
+SQL> select dname from dept where deptno=(select deptno from emp where ename='SMITH');
+
+DNAME                                                                           
+--------------                                                                  
+RESEARCH                                                                        
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER         7839 02-APR-81       2975                 
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                 
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                 
+        20                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC                                                   
+---------- -------------- -------------                                         
+        10 ACCOUNTING     NEW YORK                                              
+        20 RESEARCH       DALLAS                                                
+        30 SALES          CHICAGO                                               
+        40 OPERATIONS     BOSTON                                                
+
+SQL> set lines 200 pages 200
+SQL> select ename,sal from emp where deptno=
+  2  (select deptno where loc='NEWYORK';
+(select deptno where loc='NEWYORK'
+ *
+ERROR at line 2:
+ORA-00921: unexpected end of SQL command 
+
+
+SQL> select ename,sal from emp where deptno=
+  2   (select deptno where loc='NEWYORK');
+ (select deptno where loc='NEWYORK')
+                *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select ename,sal from emp where deptno=
+  2  (select deptno FROM dept where loc='NEWYORK')
+  3  ;
+
+no rows selected
+
+SQL> select ename,sal from emp where deptno=
+  2  (select deptno FROM dept where loc='NEW YORK');
+
+ENAME             SAL                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+CLARK            2450                                                                                                                                                                                   
+KING             5000                                                                                                                                                                                   
+MILLER           1300                                                                                                                                                                                   
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC                                                                                                                                                                           
+---------- -------------- -------------                                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                                                                                                      
+        20 RESEARCH       DALLAS                                                                                                                                                                        
+        30 SALES          CHICAGO                                                                                                                                                                       
+        40 OPERATIONS     BOSTON                                                                                                                                                                        
+
+SQL> select dname from dept where deptno in
+  2  (select deptno from emp where job='SALESMAN');
+
+DNAME                                                                                                                                                                                                   
+--------------                                                                                                                                                                                          
+SALES                                                                                                                                                                                                   
+
+SQL> select dname,loc  from dept where deptno in
+  2   (select deptno from emp where job='SALESMAN');
+
+DNAME          LOC                                                                                                                                                                                      
+-------------- -------------                                                                                                                                                                            
+SALES          CHICAGO                                                                                                                                                                                  
+
+SQL> select * from emp where deptno in
+  2  (select deptno from dept where dname in('RESEARCH','SALES');
+(select deptno from dept where dname in('RESEARCH','SALES')
+                                                          *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL>  select * from emp where deptno in
+  2   (select deptno from dept where dname in('RESEARCH','SALES'));
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+
+11 rows selected.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC                                                                                                                                                                           
+---------- -------------- -------------                                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                                                                                                      
+        20 RESEARCH       DALLAS                                                                                                                                                                        
+        30 SALES          CHICAGO                                                                                                                                                                       
+        40 OPERATIONS     BOSTON                                                                                                                                                                        
+
+SQL> select sal*12,empno,hiredate from emp where deptno in
+  2  (select * from dept where dname like'%O%' and loc like '%O%');
+(select * from dept where dname like'%O%' and loc like '%O%')
+ *
+ERROR at line 2:
+ORA-00913: too many values 
+
+
+SQL>  select sal*12,empno,hiredate from emp where deptno in
+  2  (select * from dept where dname,loc like '%O%');
+(select * from dept where dname,loc like '%O%')
+                               *
+ERROR at line 2:
+ORA-00920: invalid relational operator 
+
+
+SQL>  select sal*12,empno,hiredate from emp where deptno in
+  2  (select * from dept where dname and loc like '%O%');
+(select * from dept where dname and loc like '%O%')
+                                *
+ERROR at line 2:
+ORA-00920: invalid relational operator 
+
+
+SQL>  select sal*12,empno,hiredate from emp where deptno in
+  2   (select * from dept where dname like'%O%' and loc like '%O%');
+ (select * from dept where dname like'%O%' and loc like '%O%')
+  *
+ERROR at line 2:
+ORA-00913: too many values 
+
+
+SQL> select * from dept where deptno in
+  2  (select deptno from emp where sal between 3000 and 5000);
+
+    DEPTNO DNAME          LOC                                                                                                                                                                           
+---------- -------------- -------------                                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                                                                                                      
+        20 RESEARCH       DALLAS                                                                                                                                                                        
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select sal*12,empno,hiredate from emp where deptno in
+  2   (select deptno from dept where dname like'%O%' and loc like '%O%');
+
+    SAL*12      EMPNO HIREDATE                                                                                                                                                                          
+---------- ---------- ---------                                                                                                                                                                         
+     29400       7782 09-JUN-81                                                                                                                                                                         
+     60000       7839 17-NOV-81                                                                                                                                                                         
+     15600       7934 23-JAN-82                                                                                                                                                                         
+
+SQL> 
+SQL>  select sal*12,empno,hiredate from emp where deptno in
+  2  (select deptno from  dept where dname and loc like '%O%');
+(select deptno from  dept where dname and loc like '%O%')
+                                      *
+ERROR at line 2:
+ORA-00920: invalid relational operator 
+
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC                                                                                                                                                                           
+---------- -------------- -------------                                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                                                                                                      
+        20 RESEARCH       DALLAS                                                                                                                                                                        
+        30 SALES          CHICAGO                                                                                                                                                                       
+        40 OPERATIONS     BOSTON                                                                                                                                                                        
+
+SQL> select cname,age from customers where cid
+  2  (select cid from products where price>500);
+(select cid from products where price>500)
+ *
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL> select aname,gender,noofawards from author where aid in
+  2  (select aid from book where pub-date between '01-JAN-1981' and '31-DEC-1981' and noofpages<100);
+(select aid from book where pub-date between '01-JAN-1981' and '31-DEC-1981' and noofpages<100)
+                                *
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL> select cname,age from customers where cid in
+  2   (select cid from products where price>500);
+select cname,age from customers where cid in
+                      *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select aname,gender,noofawards from author where aid in
+  2   (select aid from book where pub
+  3  
+SQL> 
+SQL> select aname,gender,noofawards from author where aid i
+  2   (select aid from book where pubdate  between '01-JAN-1981' and '31-DEC-1981' and noofpages<100);
+select aname,gender,noofawards from author where aid i
+                                                     *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> 
+SQL> select aname,gender,noofawards from author where aid in
+  2   (select aid from book where pubdate  between '01-JAN-1981' and '31-DEC-1981' and noofpages<100);
+select aname,gender,noofawards from author where aid in
+                                    *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select *
+  2  
+SQL> select * from from dept where dname='ANALYST' where deptno in
+  2  (select deptno from emp
+  3  where comm is null and dep
+  4  
+SQL> select * from emp where job='ANALYST' and comm is null where deptno in
+  2  select deptno from dept where dname='ACCOUNTING');
+select * from emp where job='ANALYST' and comm is null where deptno in
+                                                       *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL>  select * from emp where job='ANALYST' and comm is null where deptno in
+  2  ( select deptno from dept where dname='ACCOUNTING');
+ select * from emp where job='ANALYST' and comm is null where deptno in
+                                                        *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL>  select * from emp where job='ANALYST' and comm is null where deptno=
+  2   ( select deptno from dept where dname='ACCOUNTING');
+ select * from emp where job='ANALYST' and comm is null where deptno=
+                                                        *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select * from emp where job='ANALYST' and comm is null and deptno=( select deptno from dept where dname='ACCOUNTING');
+
+no rows selected
+
+SQL> select 'developer' as 'development' from dual;
+select 'developer' as 'development' from dual
+                      *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select 'development' from dual;
+
+'DEVELOPMEN                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+development                                                                                                                                                                                             
+
+SQL> spool off
